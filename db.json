@@ -1,0 +1,381 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "inventory_id": 1,
+      "quantity": 5,
+      "price": 100,
+      "transaction_date": "2024-09-29T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "inventory_id": 2,
+      "quantity": 10,
+      "price": 250,
+      "transaction_date": "2024-09-29T11:00:00Z"
+    },
+    {
+      "inventory_id": 23,
+      "quantity": 1,
+      "price": 1,
+      "id": 3
+    },
+    {
+      "inventory_id": 24,
+      "quantity": 1,
+      "price": 1,
+      "id": 4
+    }
+  ],
+  "items": [
+    {
+      "identifier": "asd123",
+      "name": "qweqwe",
+      "description": "qweqwe",
+      "location": "galpon",
+      "type": "NON_REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "INACTIVE",
+      "id": 4
+    },
+    {
+      "identifier": "asdasd",
+      "name": "Camila",
+      "description": "Peee",
+      "location": "cordoba",
+      "type": "NON_REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "INACTIVE",
+      "id": 5
+    },
+    {
+      "identifier": "gsoler@asjservicios.com",
+      "name": "123123",
+      "description": "123123",
+      "location": "123123",
+      "type": "NON_REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "Inactive",
+      "id": 6
+    },
+    {
+      "identifier": "asd123",
+      "name": "SOLER GINO LEONEL",
+      "description": "PUERTA GRANDOTOTA",
+      "location": "galpon",
+      "type": "NON_REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "INACTIVE",
+      "id": 7
+    },
+    {
+      "identifier": "iajdiasdasd",
+      "name": "asda",
+      "description": "asd",
+      "location": "asda",
+      "type": "REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "Inactive",
+      "id": 8
+    },
+    {
+      "identifier": "asd123",
+      "name": "PETweasdA",
+      "description": "La mas facil del barrio",
+      "location": "la esquina",
+      "type": "NON_REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "CONSUMABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "Inactive",
+      "id": 9
+    },
+    {
+      "identifier": "ASD 321",
+      "name": "auto",
+      "description": "Corsa",
+      "location": "galpon",
+      "type": "REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "OTHERS",
+      "measurement_unit": "UNITS",
+      "item_status": "Inactive",
+      "id": 10
+    },
+    {
+      "identifier": "asd1412",
+      "name": "auto",
+      "description": "Corsa",
+      "location": "Casa de pepito",
+      "type": "REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "OTHERS",
+      "measurement_unit": "UNITS",
+      "item_status": "Inactive",
+      "id": 11
+    },
+    {
+      "identifier": "....",
+      "name": "maceta",
+      "description": "maceta marron de 20cm",
+      "location": "parque",
+      "type": "NON_REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "OTHERS",
+      "measurement_unit": "UNITS",
+      "item_status": "Inactive",
+      "id": 12
+    },
+    {
+      "identifier": "99999",
+      "name": "99999999",
+      "description": "99",
+      "location": "9999",
+      "type": "NON_REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "CONSUMABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "Inactive",
+      "id": 13
+    },
+    {
+      "identifier": "afadsfjpa",
+      "name": "sadfasdf",
+      "description": "asdfasdf",
+      "location": "asdfasdf",
+      "type": "REGISTRABLE",
+      "status": "DEFECTIVE",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "Inactive",
+      "id": 14
+    },
+    {
+      "identifier": "1|23",
+      "name": "123",
+      "description": "|123",
+      "location": "1|23",
+      "type": "NON_REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "Inactive",
+      "id": 15
+    },
+    {
+      "identifier": "696969",
+      "name": "696969",
+      "description": "696969",
+      "location": "696969",
+      "type": "REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "LITERS",
+      "item_status": "Inactive",
+      "id": 16
+    },
+    {
+      "identifier": "696969",
+      "name": "696969",
+      "description": "696969",
+      "location": "696969",
+      "type": "REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "LITERS",
+      "item_status": "Inactive",
+      "id": 17
+    },
+    {
+      "identifier": "asd123",
+      "name": "pepepepepep",
+      "description": "pepepepepep",
+      "location": "pepepepepep",
+      "type": "REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "Inactive",
+      "id": 18
+    },
+    {
+      "identifier": "....",
+      "name": "Camaras",
+      "description": "Camaras para seguridad",
+      "location": "galpon",
+      "type": "NON_REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": "ACTIVE",
+      "id": 19
+    },
+    {
+      "identifier": "Sillas",
+      "name": "Sillas",
+      "description": "Sillas para el salon",
+      "location": "Salon",
+      "type": "REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": null,
+      "id": 20
+    },
+    {
+      "identifier": "-",
+      "name": "Sillas",
+      "description": "Sillas para el salon",
+      "location": "Salon",
+      "type": "NON_REGISTRABLE",
+      "status": "FUNCTIONAL",
+      "category": "DURABLES",
+      "measurement_unit": "UNITS",
+      "item_status": null,
+      "id": 21
+    }
+  ],
+  "inventories": [
+    {
+      "item_id": "undefined",
+      "stock": 1,
+      "min_stock": 1,
+      "inventory_status": "INACTIVE",
+      "id": 10
+    },
+    {
+      "item_id": "7",
+      "stock": 1,
+      "min_stock": 1,
+      "inventory_status": "ACTIVE",
+      "id": 11
+    },
+    {
+      "item_id": "19",
+      "stock": 20,
+      "min_stock": 10,
+      "inventory_status": "Inactive",
+      "id": 12
+    },
+    {
+      "item_id": "6",
+      "stock": 6969,
+      "min_stock": 6969,
+      "inventory_status": "ACTIVE",
+      "id": 13
+    },
+    {
+      "item_id": "6",
+      "stock": 9898,
+      "min_stock": 9898,
+      "inventory_status": "Inactive",
+      "id": 14
+    },
+    {
+      "item_id": "9",
+      "stock": 1,
+      "min_stock": 1,
+      "inventory_status": "Inactive",
+      "id": 15
+    },
+    {
+      "item_id": "9",
+      "stock": 1,
+      "min_stock": 2,
+      "inventory_status": "Inactive",
+      "id": 16
+    },
+    {
+      "item_id": "10",
+      "stock": 1,
+      "min_stock": 1,
+      "inventory_status": "Inactive",
+      "id": 17
+    },
+    {
+      "item_id": "8",
+      "stock": 1,
+      "min_stock": 1,
+      "inventory_status": "Inactive",
+      "id": 18
+    },
+    {
+      "item_id": "12",
+      "stock": 100,
+      "min_stock": 10,
+      "inventory_status": "Inactive",
+      "id": 19
+    },
+    {
+      "item_id": "14",
+      "stock": 13434444,
+      "min_stock": 23,
+      "inventory_status": "Inactive",
+      "id": 20
+    },
+    {
+      "item_id": "10",
+      "stock": 50,
+      "min_stock": 1,
+      "inventory_status": "Inactive",
+      "id": 21
+    },
+    {
+      "item_id": 16,
+      "stock": 1,
+      "min_stock": 1,
+      "inventory_status": "Inactive",
+      "id": 22
+    },
+    {
+      "item_id": 17,
+      "stock": 1,
+      "min_stock": 1,
+      "inventory_status": "Inactive",
+      "id": 23
+    },
+    {
+      "item_id": 18,
+      "stock": 1,
+      "min_stock": 1,
+      "inventory_status": "Inactive",
+      "id": 24
+    }
+  ],
+  "employees": [
+    {
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "employeeType": "Admin",
+      "docType": "DNI",
+      "docNumber": "12345678123",
+      "hiringDate": "2021-01-01",
+      "entryTime": "09:00",
+      "exitTime": "17:00",
+      "salary": 50000,
+      "state": "Active",
+      "id": 1
+    }
+  ],
+  "suppliers": [
+    {
+      "name": "SOLER GINO LEONEL",
+      "serviceType": "Maintenance",
+      "contact": "351-8077324",
+      "address": "pascual de rogatis 3793, Barrio Los Platanos",
+      "details": "42151251251252135",
+      "state": "Active",
+      "id": 2
+    }
+  ]
+}
