@@ -59,6 +59,40 @@
 </form>
 
 <h3>Lista de Ítems</h3>
+
+<form [formGroup]="filterForm" class="mb-3">
+  <div class="row">
+    <div class="col-md-3">
+      <label for="filterStatus" class="form-label">Estado:</label>
+      <select id="filterStatus" formControlName="status" class="form-select">
+        <option value="">Todos</option>
+        <option *ngFor="let status of ItemStatus | keyvalue" [value]="status.value">{{ status.value }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="filterType" class="form-label">Tipo:</label>
+      <select id="filterType" formControlName="type" class="form-select">
+        <option value="">Todos</option>
+        <option *ngFor="let type of ItemType | keyvalue" [value]="type.value">{{ type.value }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="filterCategory" class="form-label">Categoría:</label>
+      <select id="filterCategory" formControlName="category" class="form-select">
+        <option value="">Todas</option>
+        <option *ngFor="let category of ItemCategory | keyvalue" [value]="category.value">{{ category.value }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="filterMeasurementUnit" class="form-label">Unidad de Medida:</label>
+      <select id="filterMeasurementUnit" formControlName="measurement_unit" class="form-select">
+        <option value="">Todas</option>
+        <option *ngFor="let unit of MeasurementUnit | keyvalue" [value]="unit.value">{{ unit.value }}</option>
+      </select>
+    </div>
+  </div>
+</form>
+
 <table class="table table-striped">
   <thead>
     <tr>

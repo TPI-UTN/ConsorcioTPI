@@ -19,6 +19,7 @@ export class ProvidersComponent {
   providers: Supplier[] = [];
   isEditMode = false;
   currentProviderId: number | null = null;
+  filterForm: FormGroup;
 
   serviceTypes = Object.values(ServiceType);
   statusTypes = Object.values(StatusType);
@@ -32,10 +33,18 @@ export class ProvidersComponent {
       details: ['', Validators.required],
       state: ['', Validators.required]
     });
+
+    this.filterForm = this.fb.group({
+      serviceType: [''],
+      state: [''],
+      contactNumber: ['']
+    });
   }
 
   ngOnInit(): void {
     this.getProviders();
+    this.filterForm.get('serviceType')?.valueChanges.subscribe(() => this.applyFilters());
+    this.filterForm.get('state')?.valueChanges.subscribe(() => this.applyFilters());
   }
 
   getProviders(): void {
@@ -44,6 +53,26 @@ export class ProvidersComponent {
     });
   }
 
+  applyFilters(): void {
+    const filters = {
+      serviceType: this.filterForm.get('serviceType')?.value,
+      state: this.filterForm.get('state')?.value,
+      contactNumber: this.filterForm.get('contactNumber')?.value
+    };
+
+    this.providersService.getProviders(filters).subscribe((providers) => {
+      this.providers = providers;
+    });
+  }
+
+  searchByContact(){
+    this.applyFilters();
+  }
+
+  clearSearch(){
+    this.filterForm.get('contactNumber')?.reset();
+    this.applyFilters();
+  }
   onSubmit(): void {
     if (this.providerForm.valid) {
       if (this.isEditMode) {

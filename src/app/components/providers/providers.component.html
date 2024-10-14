@@ -42,6 +42,35 @@
     </form>
   
     <h3 class="mt-5">Lista de Proveedores</h3>
+
+    <!-- Formulario de filtros -->
+    <form [formGroup]="filterForm" class="mb-3">
+      <div class="row">
+        <div class="col-md-3">
+          <label for="filterServiceType" class="form-label">Tipo de Servicio:</label>
+          <select id="filterServiceType" formControlName="serviceType" class="form-select">
+            <option value="">Todos</option>
+            <option *ngFor="let type of serviceTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="filterState" class="form-label">Estado:</label>
+          <select id="filterState" formControlName="state" class="form-select">
+            <option value="">Todos</option>
+            <option *ngFor="let state of statusTypes" [value]="state">{{ state }}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="filterContactNumber" class="form-label">Número de Contacto:</label>
+          <div class="input-group">
+            <input type="text" id="filterContactNumber" formControlName="contactNumber" class="form-control" placeholder="Buscar por contacto">
+            <button class="btn btn-outline-secondary" type="button" (click)="searchByContact()">Buscar</button>
+            <button class="btn btn-outline-secondary" type="button" (click)="clearSearch()">Limpiar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
     <table class="table table-striped">
       <thead>
         <tr>

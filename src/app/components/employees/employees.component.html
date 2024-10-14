@@ -76,6 +76,33 @@
 
   <!-- Tabla para mostrar la lista de empleados -->
   <h3 class="mt-5">Lista de Empleados</h3>
+  <!-- Formulario de filtros -->
+   <form [formGroup]="filterForm" class="mb-3">
+      <div class="row">
+        <div class="col-md-4">
+          <label for="filterEmployeeType" class="form-label">Tipo de Empleado:</label>
+          <select id="filterEmployeeType" formControlName="employeeType" class="form-select">
+            <option value="">Todos</option>
+            <option *ngFor="let type of employeeTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="filterDocType" class="form-label">Tipo de Documento:</label>
+          <select id="filterDocType" formControlName="docType" class="form-select">
+            <option value="">Todos</option>
+            <option *ngFor="let type of documentTypes" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label for="filterState" class="form-label">Estado:</label>
+          <select id="filterState" formControlName="state" class="form-select">
+            <option value="">Todos</option>
+            <option *ngFor="let state of statusTypes" [value]="state">{{ state }}</option>
+          </select>
+        </div>
+      </div>
+    </form>
+
   <table class="table table-striped">
     <thead>
       <tr>

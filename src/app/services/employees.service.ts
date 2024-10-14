@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Employee } from '../models/employee.model';
 
@@ -16,8 +16,24 @@ export class EmployeesService {
   constructor(private http: HttpClient) {}
 
   // Método para obtener la lista de empleados desde la API.
-  getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.apiUrl);
+  getEmployees(filters?: {
+    employeeType?: string,
+    docType?: string,
+    state?: string
+  }): Observable<Employee[]> {
+    let params = new HttpParams();
+    if (filters) {
+      if (filters.employeeType) {
+        params = params.append('employeeType', filters.employeeType);
+      }
+      if (filters.docType) {
+        params = params.append('docType', filters.docType);
+      }
+      if (filters.state) {
+        params = params.append('state', filters.state);
+      }
+    }
+    return this.http.get<Employee[]>(this.apiUrl, { params });
   }
 
   // Método para agregar un nuevo empleado a la API.

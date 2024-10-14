@@ -17,6 +17,7 @@ export class ItemComponent implements OnInit {
   items: Item[] = [];
   isEditing: boolean = false; // Variable para controlar el estado de edición
   currentItemId?: number; // Almacena el ID del ítem actual en edición
+  filterForm: FormGroup;
 
   // Propiedades para los enumerados
   ItemType = ItemType; // Asignamos el enum ItemType a una propiedad del componente
@@ -36,10 +37,20 @@ export class ItemComponent implements OnInit {
       measurement_unit: [MeasurementUnit.UNITS, Validators.required],
       item_status: [Status.ACTIVE]
     });
+
+    this.filterForm = this.fb.group({
+      type: [''],
+      status: [''],
+      category: [''],
+      measurement_unit: ['']
+    });
   }
 
   ngOnInit(): void {
     this.getItems();
+    this.filterForm.valueChanges.subscribe(() => {
+      this.applyFilters();
+    });
   }
 
   getItems(): void {
@@ -48,6 +59,13 @@ export class ItemComponent implements OnInit {
     });
   }
 
+  applyFilters(): void {
+    const filters = this.filterForm.value;
+    this.inventoryService.getItems(filters).subscribe(items => {
+      this.items = items.filter(item => item.item_status === Status.ACTIVE); // Mostrar solo ítems activos
+    });
+  }
+  
   addItem(): void {
     if (this.itemForm.valid) {
       const newItem = this.itemForm.value;

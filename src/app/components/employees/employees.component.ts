@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { EmployeesService } from '../../services/employees.service';
 import { Employee } from '../../models/employee.model';
@@ -11,7 +11,7 @@ import { DocumentType } from '../../models/enums/document-type.enum';
 @Component({
   selector: 'app-employees',// Nombre del selector para utilizar este componente en HTML.
   standalone: true,// Indica que este componente es independiente y no necesita ser declarado en un módulo.
-  imports: [CommonModule, ReactiveFormsModule], // Módulos importados necesarios para el funcionamiento del componente.
+  imports: [CommonModule, ReactiveFormsModule, FormsModule], // Módulos importados necesarios para el funcionamiento del componente.
   templateUrl: './employees.component.html',// Ruta del archivo HTML de la vista del componente.
   styleUrls: ['./employees.component.css'],// Rutas del archivo CSS para el estilo del componente.
   providers: [EmployeesService]// Proveedores del servicio de empleados para este componente.
@@ -27,11 +27,14 @@ export class EmployeesComponent {
   isEditMode = false;
   // Variable para almacenar el ID del empleado que se está editando.
   currentEmployeeId: number | null = null;
+  
+  filterForm: FormGroup;
 
   // Listas de opciones para los campos del formulario, utilizando los enums.
   employeeTypes = Object.values(EmployeeType);
   documentTypes = Object.values(DocumentType);
   statusTypes = Object.values(StatusType);
+
 
   // Inyectamos el FormBuilder para construir el formulario y el servicio de empleados para realizar operaciones CRUD.
   constructor(private fb: FormBuilder, private employeesService: EmployeesService) {
@@ -48,17 +51,35 @@ export class EmployeesComponent {
       salary: ['', [Validators.required, Validators.min(0)]],
       state: ['', Validators.required]
     });
-  }
-// Este método se ejecuta al iniciar el componente para cargar la lista de empleados.
-  ngOnInit(): void {
-    this.getEmployees();
-  }
-// Método para obtener la lista de empleados desde la API.
-  getEmployees(): void {
-    this.employeesService.getEmployees().subscribe((employees) => {
-      this.employees = employees;
+
+    this.filterForm = this.fb.group({
+      employeeType: [''],
+      docType: [''],
+      state: ['']
     });
   }
+// Este método se ejecuta al iniciar el componente para cargar la lista de empleados.
+ngOnInit(): void {
+  this.getEmployees();
+  this.filterForm.valueChanges.subscribe(() => {
+    this.applyFilters();
+  });
+}
+
+// Método para obtener la lista de empleados desde la API.
+getEmployees(): void {
+  this.employeesService.getEmployees().subscribe((employees) => {
+    this.employees = employees;
+  });
+}
+
+applyFilters(): void {
+  const filters = this.filterForm.value;
+  this.employeesService.getEmployees(filters).subscribe((employees) => {
+    this.employees = employees;
+  });
+}
+
  // Método que se ejecuta al enviar el formulario.
   onSubmit(): void {
     if (this.employeeForm.valid) { // Verifica si el formulario es válido.

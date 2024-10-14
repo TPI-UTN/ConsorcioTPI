@@ -21,7 +21,7 @@ export class InventoryComponent implements OnInit {
   itemMap: { [key: number]: string } = {}; // Mapa para almacenar nombre de ítems con sus IDs
   isEditing: boolean = false;
   editingInventoryId: any | null = null; // Para guardar el ID del inventario en edición
-
+  filterForm: FormGroup;
 
 
   constructor(private fb: FormBuilder, private inventoryService: InventoryService) {
@@ -31,11 +31,18 @@ export class InventoryComponent implements OnInit {
       min_stock: [1],
       inventory_status: [StatusType.ACTIVE]
     });
+
+    this.filterForm = this.fb.group({
+      minStock: ['']
+    });
   }
 
   ngOnInit(): void {
     this.getInventories();
     this.getItems();
+    this.filterForm.valueChanges.subscribe(() => {
+      this.applyStockFilter();
+    });
   }
 
   getInventories(): void {
@@ -44,6 +51,19 @@ export class InventoryComponent implements OnInit {
     });
   }
 
+  applyStockFilter(): void {
+    const filters = this.filterForm.value;
+    this.inventoryService.getInventories({ stock: filters.minStock }).subscribe(inventories => {
+      this.inventories = inventories.filter(inventory => 
+        inventory.stock >= filters.minStock && inventory.inventory_status === StatusType.ACTIVE
+      );
+    });
+  }
+
+  clearFilters(): void {
+    this.filterForm.reset({ minStock: '' });
+    this.getInventories();
+  }
   buildItemMap(): void {
     this.items.forEach(item => {
       // Verificar que el ID y el nombre no sean undefined o nulos

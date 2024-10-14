@@ -23,6 +23,17 @@
 </form>
 
 <h3>Lista de Inventarios</h3>
+
+<form [formGroup]="filterForm" class="mb-3">
+  <div class="row">
+    <div class="col-md-3">
+      <label for="minStock" class="form-label">Stock Mínimo:</label>
+      <input type="number" id="minStock" formControlName="minStock" class="form-control" placeholder="Filtrar por stock mínimo">
+      <button class="btn btn-outline-secondary" type="button" (click)="clearFilters()">Limpiar</button>
+    </div>
+  </div>
+</form>
+
 <table class="table table-striped">
   <thead>
     <tr>

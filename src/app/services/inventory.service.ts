@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Item } from '../models/item.model';
 import { Inventory, Transaction } from '../models/inventory.model';
@@ -15,8 +15,28 @@ export class InventoryService {
   constructor(private http: HttpClient) {}
 
   // CRUD para Ítems
-  getItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.apiItemsUrl);
+  getItems(filters?: {
+    status?: string,
+    type?: string,
+    category?: string,
+    measurement_unit?: string
+  }): Observable<Item[]> {
+    let params = new HttpParams();
+    if (filters) {
+      if (filters.status) {
+        params = params.append('status', filters.status);
+      }
+      if (filters.type) {
+        params = params.append('type', filters.type);
+      }
+      if (filters.category) {
+        params = params.append('category', filters.category);
+      }
+      if (filters.measurement_unit) {
+        params = params.append('measurement_unit', filters.measurement_unit);
+      }
+    }
+    return this.http.get<Item[]>(this.apiItemsUrl, { params });
   }
 
   addItem(item: Item): Observable<Item> {
@@ -32,8 +52,16 @@ export class InventoryService {
   }
 
   // CRUD para Inventarios
-  getInventories(): Observable<Inventory[]> {
-    return this.http.get<Inventory[]>(this.apiInventoriesUrl);
+  getInventories(filter?: { stock?: number }): Observable<Inventory[]> {
+    let params = new HttpParams();
+  
+  if (filter) {
+    if (filter.stock !== undefined) {
+      params = params.append('min_stock', filter.stock.toString());
+    }
+  }
+
+  return this.http.get<Inventory[]>(this.apiInventoriesUrl, { params });
   }
 
   addInventory(inventory: Inventory): Observable<Inventory> {
